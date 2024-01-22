@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1E1E1E; /* Softer dark background color */
+            color: #dcdcdc; /* Light gray text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .category {
+            width: 400px; /* Adjust the width as needed */
+            margin-bottom: 20px;
+            background-color: #464646; /* Softer background color for category */
+            border: 1px solid #575757; /* Softer border color */
+            border-radius: 5px;
+        }
+
+        .category h2 {
+            cursor: pointer;
+            background-color: #404040; /* Softer background color for heading */
+            padding: 10px;
+            border-bottom: 1px solid #575757; /* Softer border color */
+            text-align: center; /* Center the text */
+        }
+
+        .category-content {
+            display: none;
+            padding: 10px;
+            border-top: 1px solid #575757; /* Softer border color */
+        }
+
+        .command-list,
+        .subcategory-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            /* Adjust margin as needed */
+        }
+
+        .command-list li,
+        .subcategory-list li {
+            border: 1px solid #575757; /* Softer border color */
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #464646; /* Softer background color for list items */
+            border-radius: 5px;
+        }
+
+        a {
+            color: #9fbce0; /* Softer link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = document.querySelectorAll('.category h2');
+
+            categories.forEach(category => {
+                category.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+    <title>Tech Haven</title>
+</head>
+
+<body>
+
+    <div class="category">
+        <h2>Linux Commands</h2>
+        <div class="category-content">
+            <ul class="command-list">
+
+                <li><strong>Add Users:</strong></li>
+                <li><code>sudo adduser username</code>: Add a user.</li>
+                <li><code>sudo usermod -aG groupname username</code>: Add a user to a group.</li>
+                <li><code>sudo adduser username1 username2 username3</code>: Add multiple users at once.</li>
+                <li><code>sudo usermod -aG groupname username1 username2</code>: Add multiple users to a group at once.</li>
+                  <li><strong>Delete Users:</strong></li>
+                <li><code>sudo deluser username</code>: Delete a user.</li>
+                <li><code>sudo deluser username1 username2</code>: Delete multiple users at once.</li>
+                <li><code>sudo deluser username1 username2 -G groupname</code>: Remove multiple users from a group.</li>
+                     <li><strong>Add a Group:</strong></li>
+                <li><code>sudo addgroup groupname</code>: Add a group.</li>
+                  <li><strong>List Users and Groups:</strong></li>
+                <li><code>sudo getent passwd</code>: List all users.</li>
+                <li><code>sudo getent group</code>: List all groups.</li>
+                <li><code>sudo getent passwd | grep groupname</code>: List all users in a specific group.</li>
+                <li><strong>Change User Passwords:</strong></li>
+                <li><code>sudo passwd username</code>: Change a user's password.</li>
+                <li><code>sudo passwd -e username1 username2</code>: Change multiple users' passwords.</li>
+                  <li><strong>Grant elevated user rights:</strong></li>
+                <li><code>sudo usermod -aG sudo username</code>: Add a user to the sudo group (granting sudo privileges).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Cisco Commands</h2>
+        <div class="category-content">
+            <ul class="command-list">
+            <li><strong>Reset Router:</strong></li>
+                <li><code>erase startup-config</code>: Clears the startup configuration.</li>
+                <li><code>reload</code>: Restarts the router.</li>
+            </ul>
+            <ul class="command-list">
+                <li><strong>Reset Switch:</strong></li>
+                <li><code>write erase</code>: Erases the configuration on the switch.</li>
+                <li><code>reload</code>: Restarts the switch.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Windows Commands</h2>
+        <div class="category-content">
+            <ul class="command-list">
+                <li><strong>System Information:</strong></li>
+                <li><code>systeminfo</code>: Display detailed system information.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Linux Apps</h2>
+        <div class="category-content">
+            <ul class="subcategory-list">
+                               <li><a href="https://flathub.org/apps/org.mozilla.firefox" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a> - is a fast, privacy-focused web browser with a customizable interface and a wide range of extensions.</li>
+                        <li><a href="https://flathub.org/apps/com.brave.Browser" target="_blank" rel="noopener noreferrer">Brave Browser</a> - is a privacy-oriented web browser that blocks ads and trackers by default, offering a faster and more secure browsing experience.</li>
+                    </ul>
+                </li>
+                <li><strong>Media conversion & Playback</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/fr.handbrake.ghb" target="_blank" rel="noopener noreferrer">HandBrake</a> - is a popular open-source video transcoder with a user-friendly interface.</li>
+                        <li><a href="https://flathub.org/apps/com.makemkv.MakeMKV" target="_blank" rel="noopener noreferrer">MakeMKV</a> - is a video converter that converts video files into MKV format while preserving most information.</li>
+                        <li><a href="https://flathub.org/apps/org.nickvision.tubeconverter" target="_blank" rel="noopener noreferrer">Parabolic</a> - is a tool for downloading and converting videos from various websites.</li>
+                        <li><a href="https://flathub.org/apps/io.mpv.Mpv" target="_blank" rel="noopener noreferrer">mpv</a> - is a free and open-source media player known for its high-quality playback and wide range of format support.</li>
+                        <li><a href="https://flathub.org/apps/org.videolan.VLC" target="_blank" rel="noopener noreferrer">VLC Media Player</a> - is a versatile, open-source media player that supports a wide range of multimedia formats.</li>
+                    </ul>
+                </li>
+                <li><strong>Music</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/io.gitlab.zehkira.Monophony" target="_blank" rel="noopener noreferrer">Monophony</a> - is a music player with a focus on simplicity and ease of use.</li>
+                        <li><a href="https://flathub.org/apps/com.spotify.Client" target="_blank" rel="noopener noreferrer">Spotify</a> - is a popular music streaming service that provides access to a vast library of songs, playlists, and podcasts.</li>
+                    </ul>
+                </li>
+                <li><strong>Office</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/org.libreoffice.LibreOffice" target="_blank" rel="noopener noreferrer">LibreOffice</a> - is a powerful and free office suite, compatible with Microsoft Office, that includes word processing, spreadsheets, and more.</li>
+                        <li><a href="https://flathub.org/apps/org.onlyoffice.desktopeditors" target="_blank" rel="noopener noreferrer">ONLYOFFICE Desktop Editors</a> - is an open-source office suite that allows you to create and edit documents.</li>
+                        <li><a href="https://flathub.org/apps/org.gnome.gitlab.somas.Apostrophe" target="_blank" rel="noopener noreferrer">Apostrophe</a> - is a note-taking app that supports Markdown and provides a simple and organized way to manage your notes.</li>
+                    </ul>
+                </li>
+                <li><strong>Graphic design & Photo editing</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/org.kde.krita" target="_blank" rel="noopener noreferrer">Krita</a> - is a professional digital painting application designed for illustrators, concept artists, and VFX professionals.</li>
+                        <li><a href="https://flathub.org/apps/org.gimp.GIMP" target="_blank" rel="noopener noreferrer">GIMP</a> - is a free and open-source raster graphics editor used for tasks such as photo retouching, image editing, and image composition.</li>
+                        <li><a href="https://flathub.org/apps/io.github.lainsce.Colorway" target="_blank" rel="noopener noreferrer">Colorway</a> - is a color picker and palette generator for designers and developers.</li>
+                        <li><a href="https://flathub.org/apps/org.gnome.Shotwell" target="_blank" rel="noopener noreferrer">Shotwell</a> - is an open-source photo manager that organizes, edits, and shares your photos.</li>
+                    </ul>
+                </li>
+                <li><strong>Video editing</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/org.kde.kdenlive" target="_blank" rel="noopener noreferrer">Kdenlive</a> - is a powerful and open-source video editing software for creating professional-looking videos.</li>
+                    </ul>
+                </li>
+                <li><strong>Messaging</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/com.discordapp.Discord" target="_blank" rel="noopener noreferrer">Discord</a> - is a popular communication platform for voice, video, and text chat designed for gamers but used by various communities.</li>
+                    </ul>
+                </li>
+                <li><strong>Utilities</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/dev.geopjr.Collision" target="_blank" rel="noopener noreferrer">Collision</a> - is a simple and minimalistic way to check hashes for your files.</li>
+                        <li><a href="https://flathub.org/apps/com.mattjakeman.ExtensionManager" target="_blank" rel="noopener noreferrer">Extension Manager</a> - is a utility for managing Gnome extensions.</li>
+                    </ul>
+                </li>
+                <li><strong>Virtualization</strong>
+                    <ul>
+                        <li><a href="https://flathub.org/apps/org.gnome.Boxes" target="_blank" rel="noopener noreferrer">GNOME Boxes</a> - is a simple virtualization application that allows you to create and run virtual machines.</li>
+                          </ul>
+                        
+                           <li><strong>Linux Terminal Apps:</strong></li>
+                <li><code>sudo apt install ranger</code>: Ranger (a text-based file manager)-For Debian or Ubuntu based Distros.</li>
+                <li><code>sudo dnf install ranger</code>: Ranger (a text-based file manager)-For Fedora.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
