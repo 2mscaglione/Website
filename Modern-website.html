@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Single Page Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        section {
+            padding: 20px;
+            display: none; /* Initially hide all sections */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .category {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .subcategory {
+            padding: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Single Page Website</h1>
+    </header>
+
+    <nav>
+        <a onclick="showContent('home')">Home</a>
+        <a onclick="showContent('commands')">Commands and Apps</a>
+        <a onclick="showContent('videos')">Videos</a>
+        <a onclick="showContent('services')">Services</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to our Home Page</h2>
+        <!-- Your Home Page Content Goes Here -->
+    </section>
+
+    <section id="commands">
+        <h2>Commands and Apps</h2>
+        
+        <div class="category" onclick="toggleCategory('linuxCommands')">Linux Commands
+            <div class="subcategory" id="linuxCommands">
+                <!-- Your Linux Commands Content Goes Here -->
+                    <li><strong>Add Users:</strong></li>
+                <li><code>sudo adduser username</code>: Add a user.</li>
+                <li><code>sudo usermod -aG groupname username</code>: Add a user to a group.</li>
+                <li><code>sudo adduser username1 username2 username3</code>: Add multiple users at once.</li>
+                <li><code>sudo usermod -aG groupname username1 username2</code>: Add multiple users to a group at once.</li>
+                  <li><strong>Delete Users:</strong></li>
+                <li><code>sudo deluser username</code>: Delete a user.</li>
+                <li><code>sudo deluser username1 username2</code>: Delete multiple users at once.</li>
+                <li><code>sudo deluser username1 username2 -G groupname</code>: Remove multiple users from a group.</li>
+                     <li><strong>Add a Group:</strong></li>
+                <li><code>sudo addgroup groupname</code>: Add a group.</li>
+                  <li><strong>List Users and Groups:</strong></li>
+                <li><code>sudo getent passwd</code>: List all users.</li>
+                <li><code>sudo getent group</code>: List all groups.</li>
+                <li><code>sudo getent passwd | grep groupname</code>: List all users in a specific group.</li>
+                <li><strong>Change User Passwords:</strong></li>
+                <li><code>sudo passwd username</code>: Change a user's password.</li>
+                <li><code>sudo passwd -e username1 username2</code>: Change multiple users' passwords.</li>
+                  <li><strong>Grant elevated user rights:</strong></li>
+                <li><code>sudo usermod -aG sudo username</code>: Add a user to the sudo group (granting sudo privileges).</li>
+            </ul>
+        </div>
+    </div>
+        <div class="category" onclick="toggleCategory('ciscoCommands')">Cisco Commands
+            <div class="subcategory" id="ciscoCommands">
+                <!-- Your Cisco Commands Content Goes Here -->
+                <p>Example Cisco Command 1</p>
+                <p>Example Cisco Command 2</p>
+            </div>
+        </div>
+
+        <div class="category" onclick="toggleCategory('windowsCommands')">Windows Commands
+            <div class="subcategory" id="windowsCommands">
+                <!-- Your Windows Commands Content Goes Here -->
+                <p>Example Windows Command 1</p>
+                <p>Example Windows Command 2</p>
+            </div>
+        </div>
+
+        <div class="category" onclick="toggleCategory('linuxApps')">Linux Apps
+            <div class="subcategory" id="linuxApps">
+                <!-- Your Linux Apps Content Goes Here -->
+                <p>Example Linux App 1</p>
+                <p>Example Linux App 2</p>
+            </div>
+        </div>
+
+        <div class="category" onclick="toggleCategory('windowsApps')">Windows Apps
+            <div class="subcategory" id="windowsApps">
+                <!-- Your Windows Apps Content Goes Here -->
+                <p>Example Windows App 1</p>
+                <p>Example Windows App 2</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>Watch our Videos</h2>
+        <!-- Your Videos Content Goes Here -->
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <!-- Your Services Content Goes Here -->
+    </section>
+
+    <footer>
+        &copy; 2024 Your Single Page Website. All rights reserved.
+    </footer>
+
+    <script>
+        function showContent(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function toggleCategory(categoryId) {
+            var category = document.getElementById(categoryId);
+            if (category.style.display === 'block') {
+                category.style.display = 'none';
+            } else {
+                category.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
+
